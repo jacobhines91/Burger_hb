@@ -1,8 +1,8 @@
 var express = require("express");
 
 var router = express.Router();
+var burger = require("../models/burger");
 
-var connection = require ("../config/connection");
 
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
@@ -13,6 +13,11 @@ router.get("/", function(req, res) {
 
         res.render("index", burgersObject);
     })
+});
+
+router.post("/", function(req, res) {
+    console.log([req.body.name, false]);
+    burger.insertOne(["'" + req.body.name + "'", false]);
 });
 router.put("/", function(req, res){
     burger.updateOne(parseInt(req.body.id));
