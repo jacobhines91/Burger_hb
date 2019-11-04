@@ -1,34 +1,51 @@
-<h1>EAT THE BURGER</h1>
-
-<h2>Devoured Burgers</h2>
-
-
-    {{#each burgers}}
-    {{#unless devoured}}
-             <div class="row">
+<div class="container text-dark">
+    <div class="row text-center">
+        <div class="col-12">
+            <h1>Eat DA BURGER</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <h1 class="text-center">
+                Avaialable Burgers
+            </h1>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <div class="row">
                 <div class="col-8">
                     <p class="sortaBigFont">{{burger_name}} </p>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-warning customFont devourBtn" id="{{id}}"><i class="fas fa-utensils"></i> Devour </button>
+                    <button class="btn btn-dark customFont devourBtn" id="{{id}}"><i class="fas fa-utensils"></i>
+                        Devour </button>
+                        
                 </div>
-    {{/unless}}
-    {{/each}}
-
-
-
-
-    {{#each burgers}}
-    {{#if devoured}}
-    {{burger_name}}
-    {{/if}}
-    {{/each}}
-</ul>
-<h2>Order a NEW Burger</h2>
-<form class="create-form">
-    <form>
-        <div class="form-group">
-            <input type="text" class="form-control" name="addNewBurger" id="newBurger">
-            <button class="btn-burg" id="submitNewBurger">Make Burger!</button>
+            </div>
+            {{/unless}}
+            {{/each}}
         </div>
-    </form>
+        <div class="col-lg-6">
+            <h2 class="customFont text-center border-bottom">Davoured Burgers</h2>
+
+            {{#each burgers}}
+            {{#if devoured}}
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="sortaBigFont">{{burger_name}} </p>
+                </div>
+            </div>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="addNewBurger" id="newBurger">
+                    <button class="btn btn-dark customFont mt-2" id="submitNewBurger">Make Burger!</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>

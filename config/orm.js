@@ -3,44 +3,44 @@ var connection = require("../config/connection.js");
 
 // Object for all our SQL statement functions.
 var orm = {
-  selectAll: function(tb, cb) {
+  selectAll: function (tb, cb) {
     var queryString = "SELECT * FROM ?? ";
-    connection.query(queryString, [tb], function(err, result) {
-      if (err) {
+    connection.query(queryString, [tb], function (err, result) {
+      if (err)
         throw err;
-      }
+      console.table(result);
       cb(result);
-    });
+    })
   },
-  insertOne: function(tb, cols, vals, cb) {
+  insertOne: function (tb, cols, vals, cb) {
     var queryString = "INSERT INTO " + tb;
 
     queryString += " (";
-    queryString += cols.toString();
+    queryString += cols;
     queryString += ") ";
     queryString += "VALUES (";
     queryString += vals;
     queryString += ") ";
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
-
+      console.tb(result);
       cb(result);
-    });
+    })
   },
   // An example of objColVals would be {name: panther, sleepy: true}
 
 
   updateOne: function (tb, colToUpdate, col, val, valToUpdate, cb) {
     var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
-    connection.query(queryString, [tb, colToUpdate, col, val, valToUpdate], function(err, result) {
-        if (err) throw err;
+    connection.query(queryString, [tb, colToUpdate, col, val, valToUpdate], function (err, result) {
+      if (err) throw err;
 
-        console.table(result);
-        cb(result);
+      console.table(result);
+      cb(result);
     })
-}
+  }
 
 };
 
