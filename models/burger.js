@@ -10,13 +10,13 @@ var burger = {
 
     insertOne: function(vals, cb) {
         orm.insertOne("burgers", ["burger_name", "devoured"], vals, function(res) {
-            cb(res);
+           
         })
     },
 
     updateOne: function(valToUpdate, cb) {
         orm.updateOne("burgers", "devoured", true, "id", valToUpdate, function(res) {
-            cb(res);
+           
         })
     }
 }
