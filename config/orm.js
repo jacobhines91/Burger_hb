@@ -25,7 +25,7 @@ var orm = {
       if (err) {
         throw err;
       }
-      console.tb(result);
+      console.table(result);
       cb(result);
     })
   },
